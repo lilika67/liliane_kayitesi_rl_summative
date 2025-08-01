@@ -1,6 +1,4 @@
 
-### Markdown Code Block for README.md
-```
 # Reinforcement Learning Summative Assignment Report - Crop Yield Optimization
 
 ## Overview
@@ -42,7 +40,7 @@ liliane_kayitesi_rl_summative/
      ```bash
      python -m venv env
      source env/bin/activate  # On macOS/Linux
-     env\Scripts\activate     # On Windows
+
      ```
 
 3. **Install Dependencies**:
@@ -65,27 +63,8 @@ liliane_kayitesi_rl_summative/
   - Output: `random_farm.gif`
 
 - **Trained Agent (PPO)**:
-  - Visualize the trained PPO model:
-    ```bash
-    python -c "from implementation.rendering import RwandaFarmEnvVisualizer; from environment.custom_env import RwandaFarmEnv; from stable-baselines3 import PPO; env = RwandaFarmEnv(); model = PPO.load('models/pg/ppo_farm'); visualizer = RwandaFarmEnvVisualizer(env); visualizer.render('trained_farm.mp4', is_trained=True, model=model)"
-    ```
-  - Output: `trained_farm.mp4`
+  
 
-### Generating Plots
-- Run the script to create objective and entropy plots:
-  ```bash
-  python plot_metrics.py
-  ```
-  - Outputs: `DQN_objective_plot.png`, `PG_entropy_plot.png`
-  - Note: Update `plot_metrics.py` with actual log parsing logic for `training_log_20250731_full.txt`.
-
-### Recording Video
-- Use QuickTime Player (macOS):
-  1. File > New Screen Recording.
-  2. Select the Pygame window (800x576).
-  3. Run the trained agent script above.
-  4. Record 3 episodes (extend to 3 minutes), save as `agent_simulation.mp4`.
-  - Upload to Google Drive and insert the link in the report.
 
 ## Results
 ### Performance Metrics
@@ -106,47 +85,4 @@ liliane_kayitesi_rl_summative/
 - **REINFORCE**: Poor stability, no learning due to variance.
 - **A2C**: Poor stability, no convergence due to tuning issues.
 
-## Submission
-- **Package Files**:
-  ```bash
-  tar -czf submission_20250802.tar.gz *.gif *.mp4 *.png models/pg/ models/dqn/ report.pdf
-  ```
-- **Upload**: Submit with note "Updated on August 02, 2025."
-
-## Acknowledgments
-- Built with xAI’s Grok 3 assistance.
-- Thanks to course instructors for guidance.
-
-## License
-[Insert license, e.g., MIT] - Optional, consult your institution.
-```
-
-### Implementation Steps
-1. **Create README.md**:
-   - Save the content above as `README.md` in `/Users/liliane/Documents/liliane_kayitesi_rl_summative/`.
-   - Use a text editor (e.g., VS Code, Nano) and paste the entire code block, ensuring the Markdown syntax is preserved.
-
-2. **Verify Files**:
-   - Ensure all listed files (e.g., `random_farm.gif`, `models/pg/ppo_farm`) exist:
-     ```bash
-     ls -l /Users/liliane/Documents/liliane_kayitesi_rl_summative/{*.gif,*.mp4,*.png,models/pg/,models/dqn/,environment/,assets/,training_log_20250731_full.txt}
-     ```
-
-3. **Update Report Reference**:
-   - In your Google Docs report, link to `README.md` under "GitHub Repository" once uploaded (e.g., `https://github.com/yourusername/rl-crop-yield/blob/main/README.md`).
-
-4. **Test Rendering**:
-   - Confirm the README context works with your project:
-     ```bash
-     cd /Users/liliane/Documents/liliane_kayitesi_rl_summative/
-     source env/bin/activate
-     python implementation/rendering.py
-     ```
-
-### Verification
-- **Check Outputs**:
-  ```bash
-  ls -l /Users/liliane/Documents/liliane_kayitesi_rl_summative/README.md *.gif *.mp4 *.png models/*
-  cat /Users/liliane/Documents/liliane_kayitesi_rl_summative/README.md  # Confirm content
-  `
 
