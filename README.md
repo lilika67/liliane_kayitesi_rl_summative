@@ -1,87 +1,137 @@
+#  Reinforcement Learning Summative Assignment Report - Crop Yield Optimization
 
-# Reinforcement Learning Summative Assignment Report - Crop Yield Optimization
+##  Overview
+This project implements a reinforcement learning (RL) solution to optimize crop yield on a simulated Rwandan farm. The agent manages irrigation, fertilization, and crop choice to maximize crop health while minimizing costs, using a 5D state space environment.
 
-## Overview
-This project implements a reinforcement learning (RL) solution to optimize crop yield on a simulated Rwandan farm. The agent manages irrigation, fertilization, and crop choice to maximize crop health while minimizing costs, using a 5D state space environment. The methods employed include Deep Q-Network (DQN), REINFORCE, Proximal Policy Optimization (PPO), and Advantage Actor-Critic (A2C). The project meets rubric goals through visualizations, a 3-minute video, and hyperparameter tuning.
+Algorithms used:
+- Deep Q-Network (DQN)
+- REINFORCE
+- Proximal Policy Optimization (PPO)
+- Advantage Actor-Critic (A2C)
 
-## Project Structure
+---
 
+##  Project Structure
+
+```
 liliane_kayitesi_rl_summative/
 ├── environment/
-│ ├── init.py
-│ └── custom_env.py # Custom environment definition (RwandaFarmEnv)
+│   ├── __init__.py
+│   └── custom_env.py          # Custom environment definition (RwandaFarmEnv)
 ├── implementation/
-│ └── rendering.py # Pygame visualization script
+│   └── rendering.py           # Pygame visualization script
 ├── assets/
-│ └── tractor.png # Agent sprite image
+│   └── tractor.png            # Agent sprite image
 ├── models/
-│ ├── pg/ # Trained PPO model (ppo_farm)
-│ └── dqn/ # Trained DQN model (dqn_farm)
-├── training_log_20250731_full.txt # Training logs
-├── random_farm.gif # Random agent visualization
-├── trained_farm.mp4 # Trained agent visualization
-├── DQN_objective_plot.png # DQN objective function plot
-├── PG_entropy_plot.png # PG policy entropy plot
-├── state_trajectory_plot.png # State trajectory plot
-├── env/ # Virtual environment (excluded from Git)
-└── README.md # Project overview
+│   ├── pg/                    # Trained PPO model (ppo_farm)
+│   └── dqn/                   # Trained DQN model (dqn_farm)
+├── training_log_20250731_full.txt  # Training logs
+├── random_farm.gif            # Random agent visualization
+├── trained_farm.mp4           # Trained agent visualization
+├── DQN_objective_plot.png     # DQN objective function plot
+├── PG_entropy_plot.png        # PG policy entropy plot
+├── state_trajectory_plot.png  # State trajectory plot
+├── env/                       # Virtual environment (excluded from Git)
+└── README.md                  # Project overview
+```
 
-## Setup Instructions
-1. **Clone the Repository**:
+---
 
-     ```bash
-     git clone https://github.com/lilika67/liliane_kayitesi_rl_summative.git
-     cd liliane_kayitesi_rl_summative
-     ```
+## ⚙️ Setup Instructions
 
-2. **Set Up Virtual Environment**:
-   - Create and activate a virtual environment:
-     ```bash
-     python -m venv env
-     source env/bin/activate  # On macOS/Linux
+### 1. Clone the Repository
 
-     ```
+```bash
+git clone https://github.com/lilika67/liliane_kayitesi_rl_summative.git
+cd liliane_kayitesi_rl_summative
+```
 
-3. **Install Dependencies**:
-   - Install required packages:
-     ```bash
-     pip install gymnasium pygame imageio numpy stable-baselines3 matplotlib
-     ```
-   - Ensure `assets/tractor.png` is in the `assets` directory.
+### 2. Set Up Virtual Environment
 
-4. **Verify Environment**:
-   - Check the `environment/custom_env.py` file contains the `RwandaFarmEnv` class with the 5D state space and reward function `R = 1500 * crop_health - 30 * (irrigation² + fertilization²) + 150 * crop_choice`.
+```bash
+python -m venv env
+source env/bin/activate  # On macOS/Linux
+```
 
-## Usage
-### Running the Visualization
-- **Random Agent**:
-  - Generate a GIF of random agent behavior:
-    ```bash
-    python implementation/rendering.py
-    ```
-  - Output: `random_farm.gif`
+### 3. Install Dependencies
 
-- **Trained Agent (PPO)**:
-  
+```bash
+pip install gymnasium pygame imageio numpy stable-baselines3 matplotlib
+```
 
+Make sure `assets/tractor.png` exists in the `assets` folder.
 
-## Results
-### Performance Metrics
-- **Episodes to Stable Performance**:
-  - DQN: ~50 episodes, reward ~7650.12.
-  - PPO: ~150 episodes, reward peaks at 90,000 then diverges.
-  - REINFORCE: No stability, reward ~5000.
-  - A2C: No stability, reward ~4000.
-- **Cumulative Reward**: Visualized in `reward_plot.png`.
-- **Training Stability**:
-  - DQN Objective: Stabilizes at 50 episodes (`DQN_objective_plot.png`).
-  - PG Entropy: PPO stabilizes at 150 with divergence, REINFORCE/A2C flat (`PG_entropy_plot.png`).
-- **Generalization**: PPO (~9000), DQN (~7000), REINFORCE (~5000), A2C (~4000) on unseen states.
+### 4. Verify Custom Environment
 
-### Stability Analysis
-- **DQN**: High stability, with early objective convergence, though limited by 90-step episodes.
-- **PPO**: Moderate stability, with initial convergence at 150 episodes but post-divergence instability.
-- **REINFORCE**: Poor stability, no learning due to variance.
-- **A2C**: Poor stability, no convergence due to tuning issues.
+Ensure `environment/custom_env.py` contains the class `RwandaFarmEnv` and a reward function:
+
+```python
+R = 1500 * crop_health - 30 * (irrigation**2 + fertilization**2) + 150 * crop_choice
+```
+
+---
+
+##  Usage
+
+###  Run Visualization
+
+**Random Agent:**
+
+```bash
+python implementation/rendering.py
+```
+
+- Output: `random_farm.gif`
+
+**Trained PPO Agent:**
+
+To visualize trained PPO behavior (you’ll need to load from the trained model):
+
+```bash
+# Replace with correct command if different
+python implementation/rendering.py --model models/pg/ppo_farm.zip
+```
+
+---
+
+##  Results
+
+###  Performance Metrics
+
+| Algorithm   | Convergence | Reward Range     |
+|-------------|-------------|------------------|
+| DQN         | ~50 episodes | ~7,650.12        |
+| PPO         | ~150 episodes | Peaks ~90,000    |
+| REINFORCE   | No convergence | ~5,000         |
+| A2C         | No convergence | ~4,000         |
+
+- `reward_plot.png` shows total reward progression
+- `DQN_objective_plot.png`: DQN stabilizes early
+- `PG_entropy_plot.png`: PPO entropy drops after episode 150
+- `state_trajectory_plot.png`: shows state transitions
+
+###  Stability Summary
+
+- **DQN**: High stability, but performance limited by short episode horizon (90 steps).
+- **PPO**: Strong early performance; diverges post-episode 150.
+- **REINFORCE**: Poor performance due to high variance.
+- **A2C**: No significant learning; hyperparameter tuning ineffective.
+
+### 🌍 Generalization to Unseen States
+
+| Method     | Avg. Reward on Unseen States |
+|------------|------------------------------|
+| PPO        | ~9,000                       |
+| DQN        | ~7,000                       |
+| REINFORCE  | ~5,000                       |
+| A2C        | ~4,000                       |
+
+---
+
+## 🎥 Video Demo
+
+📽️ [[Link to 3-minute demo](https://www.loom.com/share/8d7ef2d24dd643cca7c67396752cb7df?sid=d66e32ed-71a3-4007-a3cc-9e46843519cd)] (agent in action)
+
+---
 
 
