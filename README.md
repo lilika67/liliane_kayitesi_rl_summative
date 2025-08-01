@@ -130,7 +130,7 @@ python implementation/rendering.py --model models/pg/ppo_farm.zip
 
 ## 🎥 Video Demo
 
-📽️ [[Link to 3-minute demo](https://www.loom.com/share/8d7ef2d24dd643cca7c67396752cb7df?sid=d66e32ed-71a3-4007-a3cc-9e46843519cd)] (agent in action)
+📽️ [Agent in action](https://www.loom.com/share/8d7ef2d24dd643cca7c67396752cb7df?sid=d66e32ed-71a3-4007-a3cc-9e46843519cd)]
 
 ---
 
