@@ -8,30 +8,29 @@ This project implements a reinforcement learning (RL) solution to optimize crop 
 
 liliane_kayitesi_rl_summative/
 ├── environment/
-│   ├── __init__.py
-│   └── custom_env.py        # Custom environment definition (RwandaFarmEnv)
+│ ├── init.py
+│ └── custom_env.py # Custom environment definition (RwandaFarmEnv)
 ├── implementation/
-│   └── rendering.py         # Pygame visualization script
+│ └── rendering.py # Pygame visualization script
 ├── assets/
-│   └── tractor.png          # Agent sprite image
+│ └── tractor.png # Agent sprite image
 ├── models/
-│   └── pg/                  # Trained PPO model (ppo_farm)
-│   └── dqn/                 # Trained DQN model (dqn_farm)
-├── training_log_20250731_full.txt  # Training logs
-├── random_farm.gif          # Random agent visualization
-├── trained_farm.mp4         # Trained agent visualization
-├── DQN_objective_plot.png   # DQN objective function plot
-├── PG_entropy_plot.png      # PG policy entropy plot
+│ ├── pg/ # Trained PPO model (ppo_farm)
+│ └── dqn/ # Trained DQN model (dqn_farm)
+├── training_log_20250731_full.txt # Training logs
+├── random_farm.gif # Random agent visualization
+├── trained_farm.mp4 # Trained agent visualization
+├── DQN_objective_plot.png # DQN objective function plot
+├── PG_entropy_plot.png # PG policy entropy plot
 ├── state_trajectory_plot.png # State trajectory plot
-├── env/                     # Virtual environment
-└── README.md                # This file
-
+├── env/ # Virtual environment (excluded from Git)
+└── README.md # Project overview
 
 ## Setup Instructions
 1. **Clone the Repository**:
-   - If hosted on GitHub, clone with:
+
      ```bash
-     git clone <your-repository-url>
+     git clone https://github.com/lilika67/liliane_kayitesi_rl_summative.git
      cd liliane_kayitesi_rl_summative
      ```
 
