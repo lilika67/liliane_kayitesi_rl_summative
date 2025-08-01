@@ -7,7 +7,7 @@
 This project implements a reinforcement learning (RL) solution to optimize crop yield on a simulated Rwandan farm. The agent manages irrigation, fertilization, and crop choice to maximize crop health while minimizing costs, using a 5D state space environment. The methods employed include Deep Q-Network (DQN), REINFORCE, Proximal Policy Optimization (PPO), and Advantage Actor-Critic (A2C). The project meets rubric goals through visualizations, a 3-minute video, and hyperparameter tuning.
 
 ## Project Structure
-```
+
 liliane_kayitesi_rl_summative/
 ├── environment/
 │   ├── __init__.py
@@ -27,7 +27,7 @@ liliane_kayitesi_rl_summative/
 ├── state_trajectory_plot.png # State trajectory plot
 ├── env/                     # Virtual environment
 └── README.md                # This file
-```
+
 
 ## Setup Instructions
 1. **Clone the Repository**:
@@ -148,14 +148,5 @@ liliane_kayitesi_rl_summative/
   ```bash
   ls -l /Users/liliane/Documents/liliane_kayitesi_rl_summative/README.md *.gif *.mp4 *.png models/*
   cat /Users/liliane/Documents/liliane_kayitesi_rl_summative/README.md  # Confirm content
-  ```
-- **Render Test**:
-  ```bash
-  open random_farm.gif  # Ensure visualization matches README
-  ```
+  `
 
-### Requested Outputs
-- `ls -l /Users/liliane/Documents/liliane_kayitesi_rl_summative/README.md *.gif *.mp4 *.png models/*` after creation.
-- Confirmation that the README is saved and matches the provided content.
-
-Copy the code block into `README.md`, verify the file, and share the outputs. Let me know if you need help with GitHub setup or further refinements!
